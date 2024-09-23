@@ -1,0 +1,27 @@
+﻿@model List<BookDetailViewModel>
+
+<div class="row mt-5">
+
+    @foreach(var item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"> @item.Title </h5>
+                <p class="card-text">Türü=@item.Genre</p>
+@*                 @if (item.PublishDate is not null)
+                {
+                    <p class="card-text" >Yayınlanma Tarihi=@item.PublishDate</p>
+                } *@
+                @if(item.ISBN is not null)
+                {
+                    <p class="card-text">ISBN=@item.ISBN</p>
+                }
+
+                
+
+            </div>
+        </div>
+    }
+
+
+</div>

@@ -1,0 +1,23 @@
+﻿@model AuthorCreateViewModel
+<h3 class="ms-3 text-center mt-5">
+    Yazar Ekleme Sayfası
+</h3>
+<form asp-controller="Author" asp-action="Create" method="post">
+
+    <div class="input-group mt-5 mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Yazar Adı Giriniz:</span>
+        <input asp-for="FirstName" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <span asp-validation-for="FirstName"></span>
+        <br />
+        <span class="input-group-text" id="inputGroup-sizing-default">Yazar SoyAdı Giriniz:</span>
+        <input asp-for="LastName" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <span asp-validation-for="LastName"></span>
+        <span class="input-group-text" id="inputGroup-sizing-default">Yazar Doğum Tarihi Giriniz:</span>
+        <input asp-for="DateOfBirth" type="datetime" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <span asp-validation-for="DateOfBirth"></span>
+
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Kaydet</button>
+
+</form>

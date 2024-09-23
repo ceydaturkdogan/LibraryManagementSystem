@@ -1,0 +1,27 @@
+﻿@model BookCreateViewModel
+<h3 class="ms-3 text-center mt-5">
+    Kitap Ekleme Sayfası
+</h3>
+<form asp-controller="Book" asp-action="Create" method="post">
+
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Kitap Adı Giriniz</label>
+        <input asp-for="Title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Kitap adı">
+        <span asp-validation-for="Title"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Kitap Türünü Giriniz</label>
+        <input asp-for="Genre" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Kitap türü">
+        <span asp-validation-for="Genre"></span>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Kitap Yayın Tarihini Giriniz</label>
+        <input asp-for="PublishDate" type="datetime" class="form-control" id="exampleFormControlInput1" placeholder="Kitap yayınlanma tarihi">
+        <span asp-validation-for="PublishDate"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Kaydet</button>
+
+</form>

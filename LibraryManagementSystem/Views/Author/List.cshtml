@@ -1,0 +1,28 @@
+﻿@model List<AuthorListViewModel>
+
+<h3 class=" mt-5 text-center">
+    Yazar Listeleme Sayfası
+</h3>
+
+
+<div class="row ">
+
+    @foreach (var item in Model)
+    {
+        <div class="card mb-2 ms-5" style="width: 18rem;">
+            <img src="https://media.istockphoto.com/id/1346710963/tr/vekt%C3%B6r/signature-line-icon-digital-signature-symbol-biometrics-handwriting-recognition.jpg?s=2048x2048&w=is&k=20&c=z5pgqmqo_hJjWlBWrniltMQJRPegIkz7jodZiw5PzM4=" class="card-img-top" alt="AuthorIcons">
+            <div class="card-body">
+                <h5 class="card-title mt-4">@item.FirstName @item.LastName</h5>
+                <div class="row">
+                    <a asp-controller="author" asp-action="detail" class="btn btn-sm btn-primary mt-2">Detaylarını Görmek İçin Tıklayınız</a>
+                    <a asp-controller="author" asp-action="edit" class="btn btn-sm btn-warning mt-2">Yazarı Düzenlemek İçin Tıklayınız</a>
+                    <a asp-controller="author" asp-action="delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger mt-2">Yazarı Silmek İçin Tıklayınız</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="row ">
+    <a asp-controller="Author" asp-action="Create" class="btn btn-primary m-5"> Yeni Yazar Ekle</a>
+
+</div>
