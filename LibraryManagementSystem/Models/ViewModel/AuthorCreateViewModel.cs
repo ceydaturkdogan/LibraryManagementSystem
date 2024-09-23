@@ -14,5 +14,7 @@ namespace LibraryManagementSystem.Models.ViewModel
         public  DateTime? DateOfBirth { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public int Id { get; set; }
     }
 }

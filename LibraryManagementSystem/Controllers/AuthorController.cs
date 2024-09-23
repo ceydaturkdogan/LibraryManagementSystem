@@ -32,7 +32,7 @@ namespace LibraryManagementSystem.Controllers
                 Id = x.Id,
                 FirstName = x.FirstName,
                 LastName = x.LastName,
-                DateOfBirth = x.DateOfBirth,
+                //DateOfBirth = x.DateOfBirth,
             }).ToList();
 
             return View(detailViewModel);
@@ -53,29 +53,53 @@ namespace LibraryManagementSystem.Controllers
 
             var maxId=_authors.Max(x => x.Id);
 
-            var newauthor = new Author
+            var newAuthor = new Author()
             {
                 Id = maxId + 1,
                 FirstName = formData.FirstName,
                 LastName = formData.LastName,
-                DateOfBirth = (DateTime)formData.DateOfBirth,
+                //DateOfBirth = (DateTime)formData.DateOfBirth,
             };
 
-            _authors.Add(newauthor);
+            _authors.Add(newAuthor);
 
             return RedirectToAction("List");
         }
-        //[HttpGet]
-        //public IActionResult Edit(int id) { 
+
+        public IActionResult Edit(int id) {
         
-        //    return View();
-        //}
-        //[HttpPost]        
         
-        //public IActionResult Edit(int id) { 
+            var authors=_authors.Find(x => x.Id == id);
+
+            var editViewModel = new AuthorEditViewModel()
+            {
+                Id = authors.Id,
+                FirstName = authors.FirstName,
+                LastName = authors.LastName,
+            };
+
+            return View(editViewModel);
         
-        //    return View();
-        //}
+        }
+        [HttpPost]
+
+        public IActionResult Edit(AuthorEditViewModel formData)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(formData);
+            }
+
+            var author = _authors.Find(x => x.Id == formData.Id);
+
+            author.FirstName = formData.FirstName;
+            author.LastName = formData.LastName;
+
+
+            return RedirectToAction("List");
+        }
+
 
         public IActionResult Delete(int id) {
 
